@@ -31,7 +31,7 @@ class baseController {
       '/api/user/avatar',
       '/api/user/login_by_ldap'
     ];
-    if (ignoreRouter.indexOf(ctx.path) > -1) {
+    if (ignoreRouter.indexOf(ctx.path) > -1 || ctx.path.indexOf('/api/public/plugin/') === 0) {
       this.$auth = true;
     } else {
       await this.checkLogin(ctx);
